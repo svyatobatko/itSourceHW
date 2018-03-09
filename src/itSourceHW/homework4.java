@@ -6,6 +6,10 @@ public class homework4 {
 
 	public static void main(String[] args) {
 		
+		// задание 0 - ¬ывод ѕи
+		System.out.println("ћетод, который выводит на экран число пи 5 раз.");
+		FormatPI();
+		
 		// задание 1 - написать метод, который принимает массив целых чисел и возвращает максимальное
 		int[] arr1 = new int[10];
 		int maxArr1;
@@ -78,5 +82,17 @@ public class homework4 {
 		}
 		return numWord;
 	}
+
+	//метод, который выводит на экран число пи 5 раз. 
+	//¬ каждой строке разное количество знак после зап€той. 
+	//¬ первой строке - 1, в последней - 5.
+	public static void FormatPI() {
+		for (int i = 1; i <= 5; i++) {
+			System.out.printf("%." + i + "f", Math.PI);
+			System.out.println(" Pi с количеством знаков после зап€той = " + i);
+		}
+		System.out.println();
+	}
+
 
 }
