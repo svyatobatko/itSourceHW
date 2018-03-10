@@ -71,6 +71,10 @@ public class homework4 {
 	
 	//метод, который вернет количество слов в строке текста
 	public static int getNumWord(String inputText) {
+		
+		// второй вариант!
+		// return inputText.split("\\s").lenght;
+		
 		int numWord = 1;
 		for (int i = 1; i < (inputText.length() - 1); i++) {
 			// Контроль пробелов, добавлено условие отсекающие 2 и более пробелов между слов,
