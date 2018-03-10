@@ -81,6 +81,8 @@ public class homework4 {
 			} 
 		}
 		return numWord;
+		// второй вариант!
+		// return inputText.split("\\s").lenght;
 	}
 
 	//метод, который выводит на экран число пи 5 раз. 
