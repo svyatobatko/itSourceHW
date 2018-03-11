@@ -53,7 +53,6 @@ public class homework5 {
 			book[i].compareWithYear(varYear);
 		}
 		
-
 	}
 	
 	public static void tableTitlePrint() {

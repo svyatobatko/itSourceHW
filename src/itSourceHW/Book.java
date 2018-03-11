@@ -100,7 +100,7 @@ public class Book {
 	}
 
 	public void printAllBookParametres() {
-		String soft = "м€гкий";
+		String soft = "мягкий";
 		String hard = "твердый";
 		String bookbinding;
 		
