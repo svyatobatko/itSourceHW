@@ -1,4 +1,4 @@
-package itSourceHW;
+Ôªøpackage itSourceHW;
 
 enum Bookbinding {SOFT, HARD}
 
@@ -100,8 +100,8 @@ public class Book {
 	}
 
 	public void printAllBookParametres() {
-		String soft = "Ïﬂ„ÍËÈ";
-		String hard = "Ú‚Â‰˚È";
+		String soft = "–º—è–≥–∫–∏–π";
+		String hard = "—Ç–≤–µ—Ä–¥—ã–π";
 		String bookbinding;
 		
 		if (this.bookbinding == Bookbinding.SOFT) {
