@@ -1,9 +1,7 @@
 package itSourceHW;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.IntStream;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 
 import itSourceHW.hw6.Sweets;
@@ -104,14 +102,22 @@ public class homework6 {
 							" - содержит сахара: " + s.getSugar() + " грамм"));
 
 		System.out.println();
-//		System.out.println("Конфеты которые находятся в подарке, "
-//				+ "отсортированные по калорийности:");
-//		
-//		Stream<Sweets> candiesStream2 = Stream.of(candies);
-//		candiesStream2
-//					.filter(ss -> ss.getQuantity() > 0)
-//					.forEach(ss->System.out.println(ss.getSweetName()));
+		System.out.println("Конфеты которые находятся в подарке, "
+				+ "отсортированные по имени, с указанием калорийности:");
 		
+
+		TreeSet<Sweets> candiesArr = new TreeSet<Sweets>();
+        
+		for (int i = 0; i < candies.length; i++) {
+        	if (candiesQuantity[i] > 0) {
+
+            	candiesArr.add(candies[i]);
+		
+			}
+        }
+        for(Sweets e : candiesArr) {
+        	System.out.println("Название конфеты: " + e.getSweetName() + ", Калории: " + e.getCalories());
+        }		
 		
 		sc.close();
 				

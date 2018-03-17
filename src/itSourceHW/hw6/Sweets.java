@@ -1,8 +1,6 @@
 package itSourceHW.hw6;
 
-import java.util.Comparator;
-
-public class Sweets {
+public class Sweets implements Comparable {
 
 	private String sweetName;
 	private int weight;
@@ -55,4 +53,21 @@ public class Sweets {
 		this.quantity = quantity;
 	}
 	
+	@Override
+	public int compareTo(Object obj) {
+		Sweets entry = (Sweets) obj;
+           
+        int result = sweetName.compareTo(entry.sweetName);
+        if(result != 0) {
+               return result;
+        }
+
+        result = calories - entry.calories;
+        if(result != 0) {
+               return result;
+        }
+        return 0;
+	}
+		
 }
+
