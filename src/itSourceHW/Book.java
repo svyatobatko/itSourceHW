@@ -10,19 +10,18 @@ public class Book {
 	private int yearOfPublication;
 	private int numberOfPage;
 	private Bookbinding bookbinding;
+	private final String SOFT_STR = "мягкий";
+	private final String HARD_STR = "твердый";
 
 	public Book() { 
-		super();
 	}
 
 	public Book(long id) {
-		super(); 
 		this.id = id;
 	}
 
 	public Book(long id, String title, String authors, String publisher,
 			int yearOfPublication, int numberOfPage, Bookbinding bookbinding) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.authors = authors;
@@ -100,14 +99,12 @@ public class Book {
 	}
 
 	public void printAllBookParametres() {
-		String soft = "мягкий";
-		String hard = "твердый";
 		String bookbinding;
 		
 		if (this.bookbinding == Bookbinding.SOFT) {
-			bookbinding = soft;
+			bookbinding = SOFT_STR;
 		} else {
-			bookbinding = hard;
+			bookbinding = HARD_STR;
 		}
 		
 		System.out.print("|");
@@ -131,7 +128,7 @@ public class Book {
 			printAllBookParametres();
 		} 
 	}
-
+// метод войд должен что то возвращать!
 	public void compareWithYear (int inputYear) {
 		if (inputYear <= this.getYearOfPublication()) {
 			printAllBookParametres();
