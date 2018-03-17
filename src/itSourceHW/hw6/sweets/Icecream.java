@@ -12,5 +12,5 @@ public abstract class Icecream extends Sweets {
 	public void setStorageTemperature(int storageTemperature) {
 		this.storageTemperature = storageTemperature;
 	}
-	
+
 }

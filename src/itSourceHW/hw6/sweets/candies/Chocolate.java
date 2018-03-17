@@ -12,5 +12,5 @@ public class Chocolate extends Candies {
 	public void setTypeOfChocolate(String typeOfChocolate) {
 		this.typeOfChocolate = typeOfChocolate;
 	}
-	
+
 }

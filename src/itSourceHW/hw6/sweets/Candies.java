@@ -11,5 +11,5 @@ public abstract class Candies extends Sweets {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
+
 }

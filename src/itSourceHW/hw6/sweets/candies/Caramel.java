@@ -12,5 +12,5 @@ public class Caramel extends Candies {
 	public void setDuctility(int ductility) {
 		this.ductility = ductility;
 	}
-	
+
 }

@@ -12,5 +12,5 @@ public class Lollipop extends Candies {
 	public void setTransparency(int transparency) {
 		this.transparency = transparency;
 	}
-	
+
 }

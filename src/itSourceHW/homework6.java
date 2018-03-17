@@ -114,8 +114,6 @@ public class homework6 {
 		
 		
 		sc.close();
-		
-		
-		
+				
 	}
 }

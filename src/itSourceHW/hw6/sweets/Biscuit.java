@@ -12,5 +12,5 @@ public abstract class Biscuit extends Sweets {
 	public void setAmountOfFlour(int amountOfFlour) {
 		this.amountOfFlour = amountOfFlour;
 	}
-	
+
 }

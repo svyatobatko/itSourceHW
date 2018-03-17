@@ -55,15 +55,4 @@ public class Sweets {
 		this.quantity = quantity;
 	}
 	
-	public class SweetsCaloriesComparator implements Comparator<Sweets>{
-		  
-	    public int compare(Sweets a, Sweets b){
-	      
-	        if ((a.getCalories()) > (b.getCalories())) {
-	        	return a.getCalories();
-			} else {
-				return b.getCalories();
-			}
-	    }
-	}
 }
