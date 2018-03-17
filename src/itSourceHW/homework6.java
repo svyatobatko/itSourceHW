@@ -105,19 +105,27 @@ public class homework6 {
 		System.out.println("Конфеты которые находятся в подарке, "
 				+ "отсортированные по имени, с указанием калорийности:");
 		
+		Stream<Sweets> candiesStream2 = Stream.of(candies);
+		candiesStream2
+					.sorted( (sweet1, sweet2) -> {
+						return sweet1.getCalories() - sweet2.getCalories();
+						})
+					.filter(s -> s.getQuantity() > 0)
+					.forEach(s->System.out.println(s.getSweetName() + 
+							" - содержит калории: " + s.getCalories()));
 
-		TreeSet<Sweets> candiesArr = new TreeSet<Sweets>();
-        
-		for (int i = 0; i < candies.length; i++) {
-        	if (candiesQuantity[i] > 0) {
-
-            	candiesArr.add(candies[i]);
-		
-			}
-        }
-        for(Sweets e : candiesArr) {
-        	System.out.println("Название конфеты: " + e.getSweetName() + ", Калории: " + e.getCalories());
-        }		
+//		TreeSet<Sweets> candiesArr = new TreeSet<Sweets>();
+//        
+//		for (int i = 0; i < candies.length; i++) {
+//        	if (candiesQuantity[i] > 0) {
+//
+//            	candiesArr.add(candies[i]);
+//		
+//			}
+//        }
+//        for(Sweets e : candiesArr) {
+//        	System.out.println("Название конфеты: " + e.getSweetName() + ", Калории: " + e.getCalories());
+//        }		
 		
 		sc.close();
 				
