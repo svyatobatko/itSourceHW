@@ -14,6 +14,21 @@ public class homework7 {
 		account1.receipts.setAmount(1000);
 		account1.receipts.setDateReceipts(date.toString());
 		
+		Account account2 = new Account();
+		account2.withdrawal.setAmount(50);
+		account2.withdrawal.setDateWithdrawal(date.toString());
+		account2.payments.setAmount(40);
+		account2.payments.setDatePayments(date.toString());
+		account2.receipts.setAmount(600);
+		account2.receipts.setDateReceipts(date.toString());
+		
+		System.out.println("acc1 withdrawal = " + account1.withdrawal.getAmount() + ", " +
+				"acc1 payments = " + account1.payments.getAmount() + ", " +
+				"acc1 receipts = " + account1.receipts.getAmount() + ", ");
+
+		System.out.println("acc2 withdrawal = " + account2.withdrawal.getAmount() + ", " +
+				"acc2 payments = " + account2.payments.getAmount() + ", " +
+				"acc2 receipts = " + account2.receipts.getAmount() + ", ");
 	}
 }
 
