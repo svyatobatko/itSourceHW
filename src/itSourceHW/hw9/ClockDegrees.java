@@ -1,4 +1,4 @@
-package hw9;
+package itSourceHW.hw9;
 
 import java.util.Scanner;
 
