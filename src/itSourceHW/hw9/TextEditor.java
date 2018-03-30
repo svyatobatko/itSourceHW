@@ -26,7 +26,7 @@ public class TextEditor {
 		varText = "";
 		do {
 			varText = sc.nextLine(); 
-			if (varText.equals("exit") == false) {writeText += varText + "\n";}
+			if (varText.equals("exit") == false) {writeText += varText + System.lineSeparator();}
 		} while (varText.equals("exit") == false);
 		writeToFile(filePath, writeText); 
 
