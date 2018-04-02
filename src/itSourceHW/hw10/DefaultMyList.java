@@ -1,52 +1,81 @@
 package itSourceHW.hw10;
 
-public class DefaultMyList<e> implements MyList {
+import java.awt.Dimension;
+import java.awt.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-	@Override
-	public void add(Object e) {
-		// TODO Auto-generated method stub
-		
+public class DefaultMyList implements MyList {
+
+	private Map<String, Item> c = new HashMap<String, Item>();
+
+	    @Override
+	    public void add(Object e) {
+	        if (!c.containsKey(((Item) e).getName())) {
+	            c.put(((Item) e).getName(), (Item) e);
+	        }
+	    }
+
+	    @Override
+	    public void clear() {
+	        c.clear();
+	    }
+
+	    @Override
+	    public boolean remove(Object o) {
+	        if (o instanceof Item) {
+	            c.remove(((Item) o).getName());
+	            return true;
+	        }
+
+	        return false;
+	    }
+
+	    public Iterator<Item> iterator() {
+	        return c.values().iterator();
+	    }
+
+	    @Override
+	    public int size() {
+	        return c.size(); 
+	    }
+
+
+	    @Override
+	    public boolean contains(Object o) {
+	        if (o instanceof Item) {
+	            return c.containsKey(((Item)o).getName());
+	        }
+
+	        return false;
+	    }
+
+		@Override
+		public boolean containsAll(MyList c) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public Object[] toArray() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
+	class Item {
+	    private String name = "";
 
-	@Override
-	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	    public String getName() {
+	        return name;
+	    }
 
-	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String toString() {
-		return "SomeString";
-	}
-	
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean containsAll(MyList c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	    public void setName(String name) {
+	        if (name == null) {
+	            throw new IllegalArgumentException();
+	        }
+	        this.name = name;
+	    }
 
 }
