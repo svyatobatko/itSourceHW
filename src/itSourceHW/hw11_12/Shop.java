@@ -13,26 +13,27 @@ import java.util.List;
 import itSourceHW.hw11_12.Ware;
 
 public class Shop {
-	
+
 	private static final int MAX_WARE = 10000;
 	private static final int MAX_FILD = 8;
-//	private Ware[] ware = new Ware[MAX_WARE];
-	private List<Ware> myWare = new ArrayList<Ware>();
+	private List<Ware> myWare;
 
 	private String wareFile = "src/itSourceHW/hw11_12/Ware.txt";
-	
+
 	public List<Ware> getWare() {
-		return myWare;
+		return this.myWare;
 	}
-	
 
 	public void setWare(List<Ware> myWare) {
 		this.myWare = myWare;
 	}
 
+	public Shop() throws IOException {
+		this.myWare = new ArrayList<Ware>();
+		fillMyWareFromFile(this.myWare);
+	}
 
-	public Shop() throws IOException { 
-		
+	private void fillMyWareFromFile(List<Ware> myWare) throws FileNotFoundException, IOException {
 		String[] fileLine = printFileToArrayString(wareFile);
 		String[][] fild = new String[fileLine.length][MAX_FILD];
 		for (int i = 0; i < fileLine.length; i++) {
@@ -41,12 +42,11 @@ public class Shop {
 				fild[i][j] = newFild[j];
 			}
 		}
-		//this.ware = new Ware[fileLine.length];
 		for (int i = 1; i < fileLine.length; i++) {
 			myWare.add(new Ware(fild[i]));
 		}
 	}
-	
+
 	private static void writeToFile(String path, String textToWrite) throws IOException {
 		Files.write(Paths.get(path), textToWrite.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 	}
@@ -56,12 +56,12 @@ public class Shop {
 			String line;
 			String[] allLine = new String[MAX_WARE];
 			int i = 0;
-			while ( (line = br.readLine()) != null) {
-//				System.out.println(allLine.length);
+			while ((line = br.readLine()) != null) {
+				// System.out.println(allLine.length);
 				allLine[i] = line;
 				i++;
 				if ((i - 1) == MAX_WARE) {
-					allLine = new String[MAX_WARE*2];
+					allLine = new String[MAX_WARE * 2];
 				}
 			}
 			String[] allLinesOut = new String[i];
@@ -73,10 +73,10 @@ public class Shop {
 	}
 
 	public void addWare(String addWare) throws IOException {
-		String allField = (myWare.size()+1) + ";" + addWare;
+		String allField = (myWare.size() + 1) + ";" + addWare;
 		String[] field = allField.split(";");
 		Ware newWare = new Ware(field);
-		writeToFile(wareFile, (System.lineSeparator() + ( (myWare.size()+1) + ";" + addWare)));
+		writeToFile(wareFile, (System.lineSeparator() + ((myWare.size() + 1) + ";" + addWare)));
 		myWare.add(newWare);
 		System.out.println("Товар успешно добавлен в магазин.");
 	}
@@ -85,7 +85,7 @@ public class Shop {
 		System.out.println("Здравствуйте покупатель, для пользования магазином введите одну из команд:");
 		helpBuyer();
 	}
-	
+
 	public void helpBuyer() {
 		System.out.println("add - добавить товар в магазин (только для администратора);");
 		System.out.println("print - вывести все товары;");
@@ -94,5 +94,5 @@ public class Shop {
 		System.out.println("help - вывести помощь;");
 		System.out.println("exit - завершить работу с магазином;");
 	}
-	
+
 }
