@@ -9,6 +9,7 @@ public class Ware {
 	private int dimDepth;
 	private int quantity;
 	private int price;
+	private int reserved;
 
 	public Ware() {
 		
@@ -23,8 +24,25 @@ public class Ware {
 		this.dimDepth = Integer.parseInt(field[5]);
 		this.quantity = Integer.parseInt(field[6]);
 		this.price = Integer.parseInt(field[7]);
+		this.reserved = 0;
 	}
 	
+	public int getReserved() {
+		return reserved;
+	}
+
+	public void incReserved() {
+		this.reserved++;
+	}
+	
+	public boolean canReserved() {
+		if (this.quantity> this.reserved) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public int getPrice() {
 		return price;
 	}

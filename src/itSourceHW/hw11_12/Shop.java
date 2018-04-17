@@ -22,7 +22,7 @@ public class Shop {
 	private String wareFile = "src/itSourceHW/hw11_12/Ware.txt";
 	
 	public List<Ware> getWare() {
-		return myWare;
+		return this.myWare;
 	}
 	
 
@@ -79,6 +79,12 @@ public class Shop {
 		writeToFile(wareFile, (System.lineSeparator() + ( (myWare.size()+1) + ";" + addWare)));
 		myWare.add(newWare);
 		System.out.println("Товар успешно добавлен в магазин.");
+//		setWare(myWare);
+		for (Ware ware : myWare) {
+			System.out.println(ware.getId());
+		}
+		System.out.println();
+		
 	}
 
 	public void helloBuyer() {
@@ -90,9 +96,28 @@ public class Shop {
 		System.out.println("add - добавить товар в магазин (только для администратора);");
 		System.out.println("print - вывести все товары;");
 		System.out.println("put - положить товар в корзину;");
+		System.out.println("basket - вывести, какие товары уже в корзине и общая сумма товаров;");
 		System.out.println("buy - сделать покупку;");
 		System.out.println("help - вывести помощь;");
 		System.out.println("exit - завершить работу с магазином;");
 	}
 	
+	public void putWare(int idWare) {
+		boolean added = false;
+		for (Ware ware : myWare) {
+			if (idWare == ware.getId() && ware.canReserved()) {
+				ware.incReserved();
+				System.out.println("Товар добавлен в корзину.");
+				added = true;
+			} else if (idWare == ware.getId() && !ware.canReserved()) {
+				System.out.println("Извините, данный товар закончился или зарезервирован.");
+				added = true;
+			}
+		}
+		if (!added) {
+			System.out.println("Извините, такого товара нет в магазине.");
+		}
+
+	}
+
 }
