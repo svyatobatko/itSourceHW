@@ -94,5 +94,12 @@ public class Ware {
 		this.dimDepth = dimDepth;
 	}
 	
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id + price;
+		return result;
+	}
+
 }

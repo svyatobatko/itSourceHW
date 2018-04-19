@@ -102,21 +102,26 @@ public class Shop {
 		System.out.println("exit - завершить работу с магазином;");
 	}
 	
-	public void putWare(int idWare) {
+	public boolean putWare(int idWare) {
 		boolean added = false;
+		boolean putHash = true;
 		for (Ware ware : myWare) {
 			if (idWare == ware.getId() && ware.canReserved()) {
 				ware.incReserved();
 				System.out.println("Товар добавлен в корзину.");
 				added = true;
+				putHash = true;
 			} else if (idWare == ware.getId() && !ware.canReserved()) {
 				System.out.println("Извините, данный товар закончился или зарезервирован.");
 				added = true;
+				putHash = false;
 			}
 		}
 		if (!added) {
 			System.out.println("Извините, такого товара нет в магазине.");
+			putHash = false;
 		}
+		return putHash;
 
 	}
 

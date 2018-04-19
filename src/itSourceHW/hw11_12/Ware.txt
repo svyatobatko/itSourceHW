@@ -1,19 +1,9 @@
-Id;Name;WeightInGramm;demWith;demHight;demDepth;Quantity;Price
+Id;Name;WeightInGramm;demWith;demHight;demDepth;Quantity
 1;Smartphone S1;250;150;70;600;5;120
-2;Smartphone S2;300;150;70;600;2;130
-3;Smartphone S3;310;150;70;600;7;140
-4;Smartphone S4;320;150;70;600;2;150
-5;Smartphone S5;325;150;70;600;9;155
-6;Smartphone S6;300;150;70;600;15;200
-7;Planshet P1;500;800;120;1200;8;300
-8;Notebook N1;1500;1800;320;2200;3;500
-9;Notebook N2;1600;1800;320;2200;9;600
-10;Notebook N3;1600;1800;320;2200;9;600
-11;Notebook N4;1600;1800;320;2200;9;600
-12;Notebook N5;1600;1800;320;2200;9;600
-13;smart xt;199;201;567;1200;3;549
-14;smart xt;199;201;567;1200;3;549
-15;ssxt;201;555;234;1234;4;456
-16;Planshet P1;500;800;120;1200;8;300
-17;Planshet P1;500;800;120;1200;8;300
-18;ssxt;201;555;234;1234;4;456
+2;Smartphone S2;300;150;70;600;2;200
+3;Smartphone S3;310;150;70;600;7;250
+4;Smartphone S4;320;150;70;600;2;300
+5;Smartphone S5;325;150;70;600;9;420
+6;Smartphone S6;300;150;70;600;15;1200
+7;Planshet P1;500;800;120;1200;8;500
+8;Notebook N1;1500;1800;320;2200;3;810
