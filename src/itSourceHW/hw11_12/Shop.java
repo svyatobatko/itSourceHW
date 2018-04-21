@@ -124,5 +124,22 @@ public class Shop {
 		return putHash;
 
 	}
+	
+	public String[] getWareField(int hashCode) {
+		String[] field = new String[4];
+		for (Ware ware : myWare) {
+			if (hashCode == ware.hashCode()) {
+				field[0] = ware.getName();
+				field[1] = Integer.toString(ware.getWeight()) + " гр";
+				field[2] = Integer.toString(ware.getDimHeight()) + "x" + 
+						Integer.toString(ware.getDimWidth()) + "x" + 
+						Integer.toString(ware.getDimDepth()) + " мм";
+				field[3] = Integer.toString(ware.getPrice());
+				//field[4] = Integer.toString(ware.getReserved());
+			}
+		}
+		return field;
+	}
+
 
 }

@@ -36,7 +36,7 @@ public class Ware {
 	}
 	
 	public boolean canReserved() {
-		if (this.quantity> this.reserved) {
+		if (this.quantity > this.reserved) {
 			return true;
 		} else {
 			return false;
@@ -47,51 +47,26 @@ public class Ware {
 		return price;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
 	public int getId() {
 		return id;
-	}
-	public void setId(String id) {
-		this.id = Integer.parseInt(id);
 	}
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public int getWeight() {
 		return weight;
 	}
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
 	public int getDimWidth() {
 		return dimWidth;
-	}
-	public void setDimWidth(int dimWidth) {
-		this.dimWidth = dimWidth;
 	}
 	public int getDimHeight() {
 		return dimHeight;
 	}
-	public void setDimHeight(int dimHeight) {
-		this.dimHeight = dimHeight;
-	}
 	public int getDimDepth() {
 		return dimDepth;
-	}
-	public void setDimDepth(int dimDepth) {
-		this.dimDepth = dimDepth;
 	}
 	
 	@Override
@@ -101,5 +76,4 @@ public class Ware {
 		result = prime * result + id + price;
 		return result;
 	}
-
 }
