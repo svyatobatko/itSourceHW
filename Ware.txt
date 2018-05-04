@@ -1,0 +1,9 @@
+Id;Name;WeightInGramm;demWith;demHight;demDepth;Quantity
+1;Smartphone S1;250;150;70;600;5
+2;Smartphone S2;300;150;70;600;2
+3;Smartphone S3;310;150;70;600;7
+4;Smartphone S4;320;150;70;600;2
+5;Smartphone S5;325;150;70;600;9
+6;Smartphone S6;300;150;70;600;15
+7;Planshet P1;500;800;120;1200;8
+8;Notebook N1;1500;1800;320;2200;3

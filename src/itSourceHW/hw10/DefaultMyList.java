@@ -1,12 +1,27 @@
 package itSourceHW.hw10;
 
-import java.awt.Dimension;
-import java.awt.List;
+import java.util.AbstractCollection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class DefaultMyList implements MyList {
+
+	public class IteratorImpl implements Iterator<Object> {
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public Object next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
 
 	private Map<String, Item> c = new HashMap<String, Item>();
 
@@ -32,10 +47,12 @@ public class DefaultMyList implements MyList {
 	        return false;
 	    }
 
-	    public Iterator<Item> iterator() {
-	        return c.values().iterator();
-	    }
+	    public Iterator<Object> iterator() {
+	    	
+	    	return new IteratorImpl();
+	    	}
 
+	    
 	    @Override
 	    public int size() {
 	        return c.size(); 
@@ -53,8 +70,11 @@ public class DefaultMyList implements MyList {
 
 		@Override
 		public boolean containsAll(MyList c) {
-			// TODO Auto-generated method stub
-			return false;
+			// Достаточно присутсвия
+	        for (Object e : c)
+	            if (!contains(e))
+	                return false;
+	        return true;
 		}
 
 		@Override
