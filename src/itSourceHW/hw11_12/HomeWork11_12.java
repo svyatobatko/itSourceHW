@@ -1,8 +1,13 @@
 package itSourceHW.hw11_12;
 
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import itSourceHW.hw11_12.Shop;
@@ -16,11 +21,12 @@ public class HomeWork11_12 {
 		// добавить работу с файлом из которого вычитывается инфа по корзине
 		// хешмапа делается по ID товара (ключь) и количество в корзине (значение)
 		Shop shop = new Shop();
-		List<Ware> myWare = shop.getWare();
+		// List<Ware> myWare = shop.getWare();
 		shop.helloBuyer();
 		Scanner sc = new Scanner(System.in);
 		String shopCommand = new String();
-		
+		Map<Integer, Integer> mapWare = new HashMap<>(5);
+
 		do {
 			shopCommand = sc.nextLine();
 			
@@ -30,18 +36,20 @@ public class HomeWork11_12 {
 				break;
 
 			case "print":
-					printWareInConsole(myWare, 1);
+					printWareInConsole(shop.getWare(), 1);
 				break;
 				
 			case "put":
-				putWareInConsole(shop);
+				putWareInConsole(shop, mapWare);
 				break;
 			case "basket":
 				System.out.println("Вы выбрали следующие товары: ");
-				printWareInConsole(myWare, 2);
+				printWareInConsole(shop.getWare(), 2);
 				break;
 			case "buy":
-				System.out.println("Вы совершили покупку");
+				System.out.println("Вы совершили покупку, 5 последних выбранных товаров:");
+				printHashMapWare(shop, mapWare);
+				System.out.println("До свидание, благодарим за покупку");
 				break;
 			case "help":
 					shop.helpBuyer();
@@ -53,7 +61,7 @@ public class HomeWork11_12 {
 				break;
 			}
 			
-		} while (shopCommand.equals("exit") == false);
+		} while ((shopCommand.equals("exit") == false)&&(shopCommand.equals("buy") == false));
 		
 		sc.close();
 	}
@@ -99,6 +107,7 @@ public class HomeWork11_12 {
 
 	}
 	
+	@SuppressWarnings("resource")
 	static void addWareInConsole (Shop shop) throws IOException {
 		Scanner scWare = new Scanner(System.in);
 		String newWare = new String();
@@ -113,13 +122,32 @@ public class HomeWork11_12 {
 //		scWare.close();
 	}
 	
-	static void putWareInConsole (Shop shop) throws IOException {
+	@SuppressWarnings("resource")
+	static void putWareInConsole (Shop shop, Map<Integer, Integer> mapWare) throws IOException {
 		Scanner scWare = new Scanner(System.in);
 		System.out.println("Для добавления товара в корзину, введите его Id.");
 		int putWare = scWare.nextInt();
-		shop.putWare(putWare);
-		
+		boolean putHash = shop.putWare(putWare);
+		if (putHash) {
+			mapWare.put(shop.getWare().get(putWare-1).hashCode(), shop.getWare().get(putWare-1).getReserved());
+		}
 //		scWare.close();
+	}
+	
+	static void printHashMapWare(Shop shop, Map<Integer, Integer> mapWare) {
+		Iterator<Integer> iterator = mapWare.keySet().iterator();
+		int i = 0;
+		while(iterator.hasNext()) {
+			int currentWare = iterator.next();
+			String[] currentWareField = shop.getWareField(currentWare);
+			System.out.println(Integer.toString(mapWare.get(currentWare)) + " шт :" + 
+					currentWareField[0] + " - " + 
+					currentWareField[1] + " " + 
+					currentWareField[2] + " " + 
+					"цена за 1:" + currentWareField[3] + " $");
+			i++;
+		}
+	  
 	}
 
 }
